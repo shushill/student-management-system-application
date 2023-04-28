@@ -3,6 +3,9 @@ package com.sushil.backend.controller;
 import jakarta.validation.Valid;
 import com.sushil.backend.dto.StudentDto;
 import com.sushil.backend.service.StudentService;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,21 +28,23 @@ public class StudentController {
 
     // handler method to handle list students request
     @GetMapping({"/students"})
-    public String listStudents(){
+    public ResponseEntity<List<StudentDto>> listStudents(){
         List<StudentDto> students = studentService.getAllStudents();
+        return new ResponseEntity<>(students, HttpStatus.OK);
     }
 
     // handler method to handle save student form submit request
     @PostMapping("/students")
-    public String saveStudent(@Valid @RequestBody StudentDto student){
-
-        studentService.createStudent(student);
+    public ResponseEntity<StudentDto> saveStudent(@RequestBody StudentDto student){
+        StudentDto studentdto = studentService.createStudent(student);
+        return new ResponseEntity<>(studentdto, HttpStatus.CREATED);
     }
 
     // handler method to handle edit student request
     @GetMapping("/students/{studentId})
-    public String editStudent(@PathVariable("studentId") Long studentId){
+    public ResponseEntity<StudentDto> getStudent(@PathVariable("studentId") Long studentId){
         StudentDto student = studentService.getStudentById(studentId);
+        return new ResponseEntity<>(students, HttpStatus.OK);
     }
 
     // handler method to handle edit student form submit request
