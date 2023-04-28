@@ -49,7 +49,6 @@ public class StudentController {
     // public String updateStudent(@PathVariable("studentId") Long studentId){
     //     studentDto.setId(studentId);
     //     studentService.updateStudent(studentDto);
-    //     return "redirect:/students";
     // }
 
     // Handler method to handle delete student request
