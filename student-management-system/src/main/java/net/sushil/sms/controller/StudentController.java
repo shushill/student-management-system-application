@@ -21,37 +21,27 @@ public class StudentController {
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
-
-    // handler method to handle list students request
+// handler method to handle list students request
     @GetMapping({"/students"})
-    public String listStudents(Model model){
+    public ResponseEntity<List<StudentDto>> listStudents(){
         List<StudentDto> students = studentService.getAllStudents();
-        model.addAttribute("students", students);
-        return "students";
-    }
-
-    // handler method to handle new student request
-    @GetMapping("/students/new")
-    public String newStudent(Model model){
-        // student model object to store student form data
-        StudentDto studentDto = new StudentDto();
-        model.addAttribute("student", studentDto);
-        return "create_student";
+        return new ResponseEntity<>(students, HttpStatus.OK);
     }
 
     // handler method to handle save student form submit request
     @PostMapping("/students")
-    public String saveStudent(@Valid @ModelAttribute("student") StudentDto student,
-                              BindingResult result,
-                              Model model){
-        if(result.hasErrors()){
-            model.addAttribute("student", student);
-            return "create_student";
-        }
-
-        studentService.createStudent(student);
-        return "redirect:/students";
+    public ResponseEntity<StudentDto> saveStudent(@RequestBody StudentDto student){
+        StudentDto studentDto = studentService.createStudent(student);
+        return new ResponseEntity<StudentDto>(studentDto , HttpStatus.CREATED);
     }
+
+    // handler method to handle edit student request
+    @GetMapping("/students/{studentId}")
+    public ResponseEntity<StudentDto> editStudent(@PathVariable("studentId") Long studentId){
+        StudentDto student = studentService.getStudentById(studentId);
+        return new ResponseEntity<>(student, HttpStatus.OK);
+    }
+
 
     // handler method to handle edit student request
     @GetMapping("/students/{studentId}/edit")
