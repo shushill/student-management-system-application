@@ -1,4 +1,4 @@
-package net.sushil.sms.entity;
+package com.sushil.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

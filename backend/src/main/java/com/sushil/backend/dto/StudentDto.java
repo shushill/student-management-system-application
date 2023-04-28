@@ -1,4 +1,4 @@
-package net.sushil.sms.dto;
+package com.sushil.backend.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;

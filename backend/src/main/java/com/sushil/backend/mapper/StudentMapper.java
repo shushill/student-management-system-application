@@ -1,7 +1,7 @@
-package net.sushil.sms.mapper;
+package com.sushil.backend.mapper;
 
-import net.sushil.sms.dto.StudentDto;
-import net.sushil.sms.entity.Student;
+import com.sushil.backend.dto.StudentDto;
+import com.sushil.backend.entity.Student;
 
 public class StudentMapper {
 

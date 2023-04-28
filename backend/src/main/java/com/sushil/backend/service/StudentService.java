@@ -1,6 +1,6 @@
-package net.sushil.sms.service;
+package com.sushil.backend.service;
 
-import net.sushil.sms.dto.StudentDto;
+import com.sushil.backend.dto.StudentDto;
 
 import java.util.List;
 

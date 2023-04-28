@@ -1,10 +1,10 @@
-package net.sushil.sms.service.impl;
+package com.sushil.backend.service.impl;
 
-import net.javaguides.sms.dto.StudentDto;
-import net.javaguides.sms.entity.Student;
-import net.javaguides.sms.mapper.StudentMapper;
-import net.javaguides.sms.repository.StudentRepository;
-import net.javaguides.sms.service.StudentService;
+import com.sushil.backend.dto.StudentDto;
+import com.sushil.backend.entity.Student;
+import com.sushil.backend.mapper.StudentMapper;
+import com.sushil.backend.repository.StudentRepository;
+import com.sushil.backend.service.StudentService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

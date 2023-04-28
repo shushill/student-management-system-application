@@ -1,8 +1,8 @@
-package net.sushil.sms.controller;
+package com.sushil.backend.controller;
 
 import jakarta.validation.Valid;
-import net.javaguides.sms.dto.StudentDto;
-import net.sushil.sms.service.StudentService;
+import com.sushil.backend.dto.StudentDto;
+import com.sushil.backend.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
