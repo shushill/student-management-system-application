@@ -1,17 +1,13 @@
 package com.sushil.backend.controller;
 
-import jakarta.validation.Valid;
 import com.sushil.backend.dto.StudentDto;
 import com.sushil.backend.service.StudentService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -62,13 +58,4 @@ public class StudentController {
         studentService.deleteStudent(studentId);
         return new ResponseEntity<>("Successfully deleted student details", HttpStatus.OK);
     }
-
-    // // Handler method to handle view student request
-    // @GetMapping("/students/{studentId}/view")
-    // public String viewStudent(@PathVariable("studentId") Long studentId,
-    //                           Model model){
-    //     StudentDto studentDto = studentService.getStudentById(studentId);
-    //     model.addAttribute("student", studentDto);
-    //     return "view_student";
-    // }
 }
