@@ -33,7 +33,7 @@ public class StudentServiceImpl implements StudentService {
         Student student = StudentMapper.mapToStudent(studentDto);
         Student newstudent = studentRepository.save(student);
         StudentDto newstudentDto = StudentMapper.mapToStudentDto(newstudent);
-        return newStudentDto;
+        return newstudentDto;
     }
 
     @Override

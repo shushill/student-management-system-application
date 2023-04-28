@@ -41,36 +41,33 @@ public class StudentController {
     }
 
     // handler method to handle edit student request
-    @GetMapping("/students/{studentId})
+    @GetMapping("/students/{studentId}")
     public ResponseEntity<StudentDto> getStudent(@PathVariable("studentId") Long studentId){
         StudentDto student = studentService.getStudentById(studentId);
-        return new ResponseEntity<>(students, HttpStatus.OK);
+        return new ResponseEntity<>(student, HttpStatus.OK);
     }
 
     // handler method to handle edit student form submit request
-    @PostMapping("/students/{studentId}")
-    public String updateStudent(@PathVariable("studentId") Long studentId,
-                                @Valid @ModelAttribute("student") StudentDto studentDto,
-                                BindingResult result,
-                                Model model){
-        studentDto.setId(studentId);
-        studentService.updateStudent(studentDto);
-        return "redirect:/students";
-    }
+    // @PostMapping("/students/{studentId}")
+    // public String updateStudent(@PathVariable("studentId") Long studentId){
+    //     studentDto.setId(studentId);
+    //     studentService.updateStudent(studentDto);
+    //     return "redirect:/students";
+    // }
 
-    // Handler method to handle delete student request
-    @GetMapping("/students/{studentId}/delete")
-    public String deleteStudent(@PathVariable("studentId") Long studentId){
-        studentService.deleteStudent(studentId);
-        return "redirect:/students";
-    }
+    // // Handler method to handle delete student request
+    // @GetMapping("/students/{studentId}/delete")
+    // public String deleteStudent(@PathVariable("studentId") Long studentId){
+    //     studentService.deleteStudent(studentId);
+    //     return "redirect:/students";
+    // }
 
-    // Handler method to handle view student request
-    @GetMapping("/students/{studentId}/view")
-    public String viewStudent(@PathVariable("studentId") Long studentId,
-                              Model model){
-        StudentDto studentDto = studentService.getStudentById(studentId);
-        model.addAttribute("student", studentDto);
-        return "view_student";
-    }
+    // // Handler method to handle view student request
+    // @GetMapping("/students/{studentId}/view")
+    // public String viewStudent(@PathVariable("studentId") Long studentId,
+    //                           Model model){
+    //     StudentDto studentDto = studentService.getStudentById(studentId);
+    //     model.addAttribute("student", studentDto);
+    //     return "view_student";
+    // }
 }
